@@ -46,17 +46,6 @@ class BinarySearchTree
   end
 
   def search(key, node = @root)
-    if key < node.value
-      search(key, node.left)
-    elsif key > node.value
-      search(key, node.right)
-    else
-      node
-    end
+    @strategy.search(key, node)
   end
-
-  def do_some_business_logic
-    @strategy.do_algorithm(%w[a b c d e])
-  end
-
 end

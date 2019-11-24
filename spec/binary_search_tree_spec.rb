@@ -1,5 +1,6 @@
 require 'spec_helper'
 require_relative '../lib/binary_search_tree'
+require_relative '../lib/concrete_forward_strategy'
 
 RSpec.describe BinarySearchTree do
   let(:mocked_strategy) { double('strategy') }
@@ -66,19 +67,41 @@ RSpec.describe BinarySearchTree do
 
   describe '#search' do
     context 'when there are values' do
-      before(:each) do
-        node_values = ['c', 'b', 'a', 'd']
-        node_values.each do |value|
-          subject.insert(value)
+      context 'when lexicographic' do
+        subject { BinarySearchTree.new(ConcreteForwardStrategy.new) }
+
+        before(:each) do
+          node_values = ['c', 'b', 'a', 'd']
+          node_values.each do |value|
+            subject.insert(value)
+          end
+        end
+
+        it 'should return the correct node' do
+          expect(subject.search('a')).to eq(subject.root.left.left)
+          expect(subject.search('b')).to eq(subject.root.left)
+          expect(subject.search('c')).to eq(subject.root)
+          expect(subject.search('d')).to eq(subject.root.right)
         end
       end
-
-      it 'should return the correct node' do
-        expect(subject.search('a')).to eq(subject.root.left.left)
-        expect(subject.search('b')).to eq(subject.root.left)
-        expect(subject.search('c')).to eq(subject.root)
-        expect(subject.search('d')).to eq(subject.root.right)
-      end
+      #
+      # context 'when reverse lexicographic' do
+      #   subject { BinarySearchTree.new(ConcreteReverseStrategy.new) }
+      #
+      #   before(:each) do
+      #     node_values = ['c', 'b', 'a', 'd']
+      #     node_values.each do |value|
+      #       subject.insert(value)
+      #     end
+      #   end
+      #
+      #   it 'should return the correct node' do
+      #     expect(subject.search('a')).to eq(subject.root.left.left)
+      #     # expect(subject.search('b')).to eq(subject.root.left)
+      #     # expect(subject.search('c')).to eq(subject.root)
+      #     # expect(subject.search('d')).to eq(subject.root.right)
+      #   end
+      # end
     end
     context 'when there are no values' do
       it 'should return nil' do

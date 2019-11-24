@@ -9,14 +9,6 @@ class NullNode
   def left
   end
 
-  # def value<(*)
-  #   false
-  # end
-  #
-  # def value.>(*)
-  #   false
-  # end
-
   def right
   end
 
