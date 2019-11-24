@@ -14,8 +14,8 @@ class BinarySearchTree
     @strategy = strategy
   end
 
-  def insert(key)
-    @root.insert(key)
+  def insert(value)
+    @root.insert(value)
   end
 
   def visualize

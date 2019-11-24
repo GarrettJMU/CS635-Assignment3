@@ -28,53 +28,53 @@ class Node
   end
 end
 
-class BinarySearchTree
-  def initialize
-    @root = nil
-  end
-
-  def insert(key)
-    if @root.nil?
-      @root = Node.new(key)
-    else
-      @root.insert(key)
-    end
-  end
-
-  def in_order(node = @root, &block)
-    return if node.nil?
-    in_order(node.left, &block)
-    yield node
-    in_order(node.right, &block)
-  end
-
-  def pre_order(node = @root, &block)
-    return if node.nil?
-    yield node
-    in_order(node.left, &block)
-    in_order(node.right, &block)
-  end
-
-
-  # def post_order(node = @root, &block)
-  #   return if node.nil?
-  #   in_order(node.left, &block)
-  #   in_order(node.right, &block)
-  #   yield node
-  # end
-
-  def search(key, node = @root)
-    return nil if node.nil?
-    if key < node.key
-      search(key, node.left)
-    elsif key > node.key
-      search(key, node.right)
-    else
-      node
-    end
-  end
-
-end
+# class BinarySearchTree
+#   def initialize
+#     @root = nil
+#   end
+#
+#   def insert(key)
+#     if @root.nil?
+#       @root = Node.new(key)
+#     else
+#       @root.insert(key)
+#     end
+#   end
+#
+#   def in_order(node = @root, &block)
+#     return if node.nil?
+#     in_order(node.left, &block)
+#     yield node
+#     in_order(node.right, &block)
+#   end
+#
+#   def pre_order(node = @root, &block)
+#     return if node.nil?
+#     yield node
+#     in_order(node.left, &block)
+#     in_order(node.right, &block)
+#   end
+#
+#
+#   # def post_order(node = @root, &block)
+#   #   return if node.nil?
+#   #   in_order(node.left, &block)
+#   #   in_order(node.right, &block)
+#   #   yield node
+#   # end
+#
+#   def search(key, node = @root)
+#     return nil if node.nil?
+#     if key < node.key
+#       search(key, node.left)
+#     elsif key > node.key
+#       search(key, node.right)
+#     else
+#       node
+#     end
+#   end
+#
+# end
 
 tree = BinarySearchTree.new
 tree.insert(50)
