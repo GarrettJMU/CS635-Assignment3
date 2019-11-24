@@ -15,8 +15,7 @@ class BinarySearchTree
   end
 
   def insert(value)
-    # @root.insert(value, @strategy)
-    @root.insert(value)
+    @root.insert(value, @strategy)
   end
 
   def visualize

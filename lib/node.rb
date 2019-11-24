@@ -9,13 +9,8 @@ class Node
     @right = NullNode.new(self)
   end
 
-  def insert(new_key)
-    # strategy.insert(new_key, self)
-    if new_key <= @value
-      @left.insert(new_key)
-    elsif new_key > @value
-      @right.insert(new_key)
-    end
+  def insert(new_key, strategy)
+    strategy.insert(new_key, self)
   end
 
   def accept(visitor)

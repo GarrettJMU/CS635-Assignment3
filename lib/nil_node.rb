@@ -24,12 +24,12 @@ class NullNode
     @parent.root = Node.new(key)
   end
 
-  def insert(key)
+  def insert(*args)
     if @parent.instance_of?(Node)
-      self.set_parents_left_node(key) if @parent.left === self
-      self.set_parents_right_node(key) if @parent.right === self
+      self.set_parents_left_node(args[0]) if @parent.left === self
+      self.set_parents_right_node(args[0]) if @parent.right === self
     elsif @parent.instance_of?(BinarySearchTree)
-      self.set_root_node(key) if @parent.root === self
+      self.set_root_node(args[0]) if @parent.root === self
     end
   end
 

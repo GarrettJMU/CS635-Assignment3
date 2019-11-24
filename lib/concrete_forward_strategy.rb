@@ -14,7 +14,7 @@ class ConcreteForwardStrategy < Strategy
   def insert(new_value, node)
     if new_value <= node.value
       node.left.insert(new_value)
-    elsif new_value > @value
+    elsif new_value > node.value
       node.right.insert(new_value)
     end
   end
