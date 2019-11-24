@@ -56,12 +56,12 @@ class BinarySearchTree
   end
 
 
-  def post_order(node = @root, &block)
-    return if node.nil?
-    in_order(node.left, &block)
-    in_order(node.right, &block)
-    yield node
-  end
+  # def post_order(node = @root, &block)
+  #   return if node.nil?
+  #   in_order(node.left, &block)
+  #   in_order(node.right, &block)
+  #   yield node
+  # end
 
   def search(key, node = @root)
     return nil if node.nil?
@@ -74,26 +74,6 @@ class BinarySearchTree
     end
   end
 
-  def check_height(node)
-    return 0 if node.nil?
-
-    leftHeight = check_height(node.left)
-    return -1 if leftHeight == -1
-
-    rightHeight = check_height(node.right)
-    return -1 if rightHeight == -1
-
-    diff = leftHeight - rightHeight
-    if diff.abs > 1
-      -1
-    else
-      [leftHeight, rightHeight].max + 1
-    end
-  end
-
-  def is_balanced?(node = @root)
-    check_height(node) == -1 ? false : true
-  end
 end
 
 tree = BinarySearchTree.new
@@ -105,8 +85,6 @@ tree.insert(37)
 tree.insert(87)
 tree.insert(63)
 puts tree.inspect
-puts "tree.is_balanced?"
-puts tree.is_balanced?
 
 puts "pre_order"
 tree.pre_order do |node|

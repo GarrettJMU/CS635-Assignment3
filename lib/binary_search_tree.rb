@@ -45,6 +45,17 @@ class BinarySearchTree
     in_order(node.right, &block)
   end
 
+  def search(key, node = @root)
+    return nil if node.nil?
+    if key < node.value
+      search(key, node.left)
+    elsif key > node.value
+      search(key, node.right)
+    else
+      node
+    end
+  end
+
   def do_some_business_logic
     @strategy.do_algorithm(%w[a b c d e])
   end
