@@ -6,6 +6,6 @@ class ConcreteVisitor < Visitor
   end
 
   def visit_component_with_nil(element)
-    "(#{element.visit_component_with_nil}"
+    "#{element.visit_component_with_nil}"
   end
 end

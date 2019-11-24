@@ -1,20 +1,20 @@
 require_relative '../lib/nil_node'
 
-class Node < NullNode
+class Node
   attr_accessor :value, :right, :left
 
   def initialize(value)
     @value = value
-    @left = nil
-    @right = nil
+    @left = NullNode.new(self)
+    @right = NullNode.new(self)
   end
 
-  def left
-    puts '#######'
-  end
-
-  def right
-    puts '#########'
+  def insert(new_key)
+    if new_key <= @value
+      @left.insert(new_key)
+    elsif new_key > @value
+      @right.insert(new_key)
+    end
   end
 
   def accept(visitor)
@@ -24,14 +24,16 @@ class Node < NullNode
   def visit_component_with_value
     value
   end
-
 end
 
 #
 # (5
 #   (3
 #     ()
-#     (4 () ())
+#     (4
+#       ()
+#       ()
+#     )
 #   )
 #   (10
 #     ()
