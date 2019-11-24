@@ -10,6 +10,7 @@ class Node
   end
 
   def insert(new_key)
+    # strategy.insert(new_key, self)
     if new_key <= @value
       @left.insert(new_key)
     elsif new_key > @value
