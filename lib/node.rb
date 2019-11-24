@@ -21,6 +21,10 @@ class Node < NullNode
     visitor.visit_component_with_value(self)
   end
 
+  def visit_component_with_value
+    value
+  end
+
 end
 
 #

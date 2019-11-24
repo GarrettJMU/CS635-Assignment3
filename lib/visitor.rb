@@ -28,3 +28,8 @@ end
 # puts 'It allows the same client code to work with different types of visitors:'
 # visitor2 = ConcreteVisitor2.new
 # client_code(components, visitor2)
+# components = [Node.new, NullNode.new]
+#
+# components.each do |c|
+#   c.accept(ConcreteVisitor.new)
+# end
