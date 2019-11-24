@@ -1,4 +1,4 @@
-class Context
+class BinarySearchTree
   attr_accessor :strategy
 
   def initialize(strategy)

@@ -1,20 +1,19 @@
 class Node < NullNode
-  attr_accessor :value
+  attr_accessor :value, :right, :left
 
   def initialize(value)
     @value = value
-    @left_value = nil
-    @right_value = nil
-  end
-
-  def insert(new_node)
-
+    @left = nil
+    @right = nil
   end
 
   def left
     puts '#######'
   end
 
+  def right
+    puts '#########'
+  end
 end
 
 #
