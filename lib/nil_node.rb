@@ -3,7 +3,13 @@ class NullNode
     @parent = parent
   end
 
-  def left(key)
+  def left
+  end
+
+  def right
+  end
+
+  def set_parents_left_node(key)
     @parent.left = Node.new(key)
   end
 
@@ -11,7 +17,7 @@ class NullNode
 
   end
 
-  def right(key)
+  def set_parents_right_node(key)
     @parent.right = Node.new(key)
   end
 
@@ -19,7 +25,7 @@ class NullNode
   end
 
   def insert(key)
-    @parent.left == self ? self.left(key) : self.right(key)
+    @parent.left == self ? self.set_parents_left_node(key) : self.set_parents_right_node(key)
   end
 
   def accept(visitor)

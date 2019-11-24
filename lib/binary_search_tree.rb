@@ -22,6 +22,7 @@ class BinarySearchTree
         tree += node.accept(ConcreteVisitor.new)
       end
     end
+
     tree
   end
 
@@ -52,7 +53,7 @@ class BinarySearchTree
   end
 
 
-    # def insert
+  # def insert
   #   @strategy.insert
   # end
 end
