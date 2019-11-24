@@ -56,25 +56,25 @@ RSpec.describe Node do
         it 'should create a new node' do
           subject.insert('a', strategy)
           subject.insert('c', strategy)
-          # subject.insert('d', strategy)
+          subject.insert('d', strategy)
           expect(subject.left.value).to eq('a')
           expect(subject.right.value).to eq('c')
 
           expect(subject.right.instance_of?(Node)).to eq(true)
-          # expect(subject.right.right.value).to eq('d')
+          expect(subject.right.right.value).to eq('d')
         end
       end
     end
   end
 
-  # describe '#accept' do
-  #   let(:value) { "foo" }
-  #   context 'when a value is padded' do
-  #     it 'should return the current value with parentheses around it' do
-  #       expect(subject.accept(ConcreteVisitor.new)).to eq("(foo)")
-  #     end
-  #   end
-  # end
+  describe '#accept' do
+    let(:value) { "foo" }
+    context 'when a value is padded' do
+      it 'should return the current value with parentheses around it' do
+        expect(subject.accept(ConcreteVisitor.new)).to eq("(foo)")
+      end
+    end
+  end
 
   describe '#visit_component_with_value' do
     let(:value) { "foo" }

@@ -65,50 +65,50 @@ RSpec.describe BinarySearchTree do
       end
     end
   end
-  #
-  # describe '#search' do
-  #   context 'when there are values' do
-  #     context 'when lexicographic' do
-  #       subject { BinarySearchTree.new(ConcreteForwardStrategy.new) }
-  #
-  #       before(:each) do
-  #         node_values = ['c', 'b', 'a', 'd']
-  #         node_values.each do |value|
-  #           subject.insert(value)
-  #         end
-  #       end
-  #
-  #       it 'should return the correct node' do
-  #         expect(subject.search('a')).to eq(subject.root.left.left)
-  #         expect(subject.search('b')).to eq(subject.root.left)
-  #         expect(subject.search('c')).to eq(subject.root)
-  #         expect(subject.search('d')).to eq(subject.root.right)
-  #       end
-  #     end
-  #
-  #     context 'when reverse lexicographic' do
-  #       before(:each) do
-  #         @klass = BinarySearchTree.new(ConcreteReverseStrategy.new)
-  #
-  #         node_values = ['aa', 'bz', 'cd', 'da']
-  #         node_values.each do |value|
-  #           @klass.insert(value)
-  #         end
-  #       end
-  #
-  #       it 'should return the correct node' do
-  #         expect(@klass.search('aa')).to eq(@klass.root)
-  #         expect(@klass.search('bz')).to eq(@klass.root.right)
-  #         # expect(@klass.search('cd')).to eq(@klass.root.right)
-  #         # expect(subject.search('da')).to eq(subject.root.left)
-  #       end
-  #     end
-  #   end
-  #   context 'when there are no values' do
-  #     it 'should return nil' do
-  #       # expect(subject.search('a')).to eq(nil)
-  #     end
-  #   end
-  # end
 
+  describe '#search' do
+    context 'when there are values' do
+      context 'when lexicographic' do
+        subject { BinarySearchTree.new(ConcreteForwardStrategy.new) }
+
+        before(:each) do
+          node_values = ['c', 'b', 'a', 'd']
+          node_values.each do |value|
+            subject.insert(value)
+          end
+        end
+
+        it 'should return the correct node' do
+          expect(subject.search('a')).to eq(subject.root.left.left)
+          expect(subject.search('b')).to eq(subject.root.left)
+          expect(subject.search('c')).to eq(subject.root)
+          expect(subject.search('d')).to eq(subject.root.right)
+        end
+      end
+
+      # context 'when reverse lexicographic' do
+      #   before(:each) do
+      #     @klass = BinarySearchTree.new(ConcreteReverseStrategy.new)
+      #
+      #     node_values = ['aa', 'bz', 'cd', 'da']
+      #     node_values.each do |value|
+      #       @klass.insert(value)
+      #     end
+      #   end
+      #
+      #   it 'should return the correct node' do
+      #     expect(@klass.search('aa')).to eq(@klass.root)
+      #     expect(@klass.search('bz')).to eq(@klass.root.right)
+      #     # expect(@klass.search('cd')).to eq(@klass.root.right)
+      #     # expect(subject.search('da')).to eq(subject.root.left)
+      #   end
+      # end
+    end
+
+    context 'when there are no values' do
+      it 'should return nil' do
+        # expect(subject.search('a')).to eq(nil)
+      end
+    end
+  end
 end
