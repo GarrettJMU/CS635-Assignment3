@@ -9,10 +9,10 @@ class BinarySearchTree
     @strategy = strategy
     @root = NullNode.new(self)
   end
-
-  def strategy(strategy)
-    @strategy = strategy
-  end
+  #
+  # def strategy(strategy)
+  #   @strategy = strategy
+  # end
 
   def insert(value)
     @root.insert(value, @strategy)

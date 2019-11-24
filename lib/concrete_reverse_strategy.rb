@@ -19,9 +19,9 @@ class ConcreteReverseStrategy < Strategy
     reversed_node_value = node.value.reverse
 
     if reversed_new_value <= reversed_node_value
-      node.left.insert(new_value)
+      node.left.insert(new_value, self)
     elsif reversed_new_value > reversed_node_value
-      node.right.insert(new_value)
+      node.right.insert(new_value, self)
     end
   end
 end
