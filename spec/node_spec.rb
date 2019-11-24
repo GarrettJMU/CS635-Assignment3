@@ -68,4 +68,11 @@ RSpec.describe Node do
       end
     end
   end
+
+  describe '#visit_component_with_value' do
+    let(:value) {"foo"}
+    it 'should return the value' do
+      expect(subject.visit_component_with_value).to eq(value)
+    end
+  end
 end

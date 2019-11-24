@@ -1,12 +1,21 @@
 class NullNode
-  attr_accessor :parent
+  attr_accessor :parent, :value
 
   def initialize(parent)
     @parent = parent
+    @value = nil
   end
 
   def left
   end
+
+  # def value<(*)
+  #   false
+  # end
+  #
+  # def value.>(*)
+  #   false
+  # end
 
   def right
   end
@@ -21,9 +30,6 @@ class NullNode
 
   def set_root_node(key)
     @parent.root = Node.new(key)
-  end
-
-  def value(*)
   end
 
   def insert(key)

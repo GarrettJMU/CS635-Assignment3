@@ -1,7 +1,7 @@
 require_relative '../lib/strategy'
 
 class ConcreteReverseStrategy < Strategy
-  def do_algorithm(data)
+  def search(data)
     data.sort.reverse
   end
 end

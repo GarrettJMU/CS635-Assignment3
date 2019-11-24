@@ -1,5 +1,5 @@
 class Strategy
-  def do_algorithm(_data)
+  def search(*)
     raise NotImplementedError, "Not implemented"
   end
 end

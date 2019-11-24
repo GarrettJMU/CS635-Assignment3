@@ -20,7 +20,6 @@ RSpec.describe BinarySearchTree do
     end
 
     context 'when there is no Node at the root' do
-
       before(:each) do
         subject.insert('foo')
         subject.insert('bar')
@@ -35,7 +34,6 @@ RSpec.describe BinarySearchTree do
         expect(subject.root.left.value).to eq('bar')
       end
     end
-
   end
 
 
@@ -62,6 +60,29 @@ RSpec.describe BinarySearchTree do
         expect(subject.root.left.value).to eq("a")
         expect(subject.root.right.value).to eq("c")
         # expect(subject.visualize).to eq("(b (a () ()) (c () ()))")
+      end
+    end
+  end
+
+  describe '#search' do
+    context 'when there are values' do
+      before(:each) do
+        node_values = ['c', 'b', 'a', 'd']
+        node_values.each do |value|
+          subject.insert(value)
+        end
+      end
+
+      it 'should return the correct node' do
+        expect(subject.search('a')).to eq(subject.root.left.left)
+        expect(subject.search('b')).to eq(subject.root.left)
+        expect(subject.search('c')).to eq(subject.root)
+        expect(subject.search('d')).to eq(subject.root.right)
+      end
+    end
+    context 'when there are no values' do
+      it 'should return nil' do
+        # expect(subject.search('a')).to eq(nil)
       end
     end
   end
