@@ -39,10 +39,10 @@ RSpec.describe Node do
 
     context 'when there are multiple values' do
       it 'should add it to the correct nodes' do
+        subject.insert('d')
         subject.insert('a')
-        subject.insert('c')
         expect(subject.left.value).to eq('a')
-        expect(subject.right.value).to eq('c')
+        expect(subject.right.value).to eq('d')
       end
     end
 
@@ -53,6 +53,8 @@ RSpec.describe Node do
         subject.insert('d')
         expect(subject.left.value).to eq('a')
         expect(subject.right.value).to eq('c')
+
+        expect(subject.right.instance_of?(Node)).to eq(true)
         expect(subject.right.right.value).to eq('d')
       end
     end

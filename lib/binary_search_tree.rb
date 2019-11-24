@@ -7,11 +7,15 @@ class BinarySearchTree
 
   def initialize(strategy)
     @strategy = strategy
-    @root = nil
+    @root = NullNode.new(self)
   end
 
   def strategy(strategy)
     @strategy = strategy
+  end
+
+  def insert(key)
+    @root.insert(key)
   end
 
   def visualize
@@ -45,12 +49,4 @@ class BinarySearchTree
     @strategy.do_algorithm(%w[a b c d e])
   end
 
-  def insert(key)
-      @root.insert(key)
-  end
-
-
-  # def insert
-  #   @strategy.insert
-  # end
 end

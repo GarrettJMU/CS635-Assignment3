@@ -1,4 +1,6 @@
 class NullNode
+  attr_accessor :parent
+
   def initialize(parent)
     @parent = parent
   end
@@ -13,10 +15,6 @@ class NullNode
     @parent.left = Node.new(key)
   end
 
-  def insert_left_value(key)
-
-  end
-
   def set_parents_right_node(key)
     @parent.right = Node.new(key)
   end
@@ -29,9 +27,12 @@ class NullNode
   end
 
   def insert(key)
-    self.set_parents_left_node(key) if @parent.left == self
-    self.set_parents_right_node(key) if @parent.right == self
-    self.set_root_node(key) if @parent.instance_of?(BinarySearchTree) && @parent.root == self
+    if @parent.instance_of?(Node)
+      self.set_parents_left_node(key) if @parent.left === self
+      self.set_parents_right_node(key) if @parent.right === self
+    elsif @parent.instance_of?(BinarySearchTree)
+      self.set_root_node(key) if @parent.root === self
+    end
   end
 
   def accept(visitor)
