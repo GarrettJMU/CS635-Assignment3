@@ -2,9 +2,9 @@ require 'spec_helper'
 require_relative '../lib/strategy'
 
 RSpec.describe Strategy do
-  describe 'green' do
-    it 'should be good' do
-      expect(true).to eq(true)
+  describe '#do_algorithm' do
+    it 'should raise an error' do
+      expect {Strategy.new.do_algorithm("")}.to raise_error(NotImplementedError)
     end
   end
 end
