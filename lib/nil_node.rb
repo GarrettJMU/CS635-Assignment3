@@ -7,4 +7,8 @@ class NullNode
 
   def value(*)
   end
+
+  def accept(visitor)
+    visitor.visit_component_with_nil(self)
+  end
 end

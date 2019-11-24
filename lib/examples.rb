@@ -1,3 +1,5 @@
+
+
 ## Normal sort
 
 context = BinarySearchTree.new(ConcreteForwardStrategy.new)

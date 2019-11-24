@@ -12,4 +12,8 @@ class BinarySearchTree
   def do_some_business_logic
     @strategy.do_algorithm(%w[a b c d e])
   end
+
+  def insert
+    @strategy.insert
+  end
 end

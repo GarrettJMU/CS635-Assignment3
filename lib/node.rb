@@ -16,6 +16,11 @@ class Node < NullNode
   def right
     puts '#########'
   end
+
+  def accept(visitor)
+    visitor.visit_component_with_value(self)
+  end
+
 end
 
 #
