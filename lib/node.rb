@@ -1,3 +1,5 @@
+require_relative '../lib/nil_node'
+
 class Node < NullNode
   attr_accessor :value, :right, :left
 
