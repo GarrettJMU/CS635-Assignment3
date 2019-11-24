@@ -21,11 +21,17 @@ class NullNode
     @parent.right = Node.new(key)
   end
 
+  def set_root_node(key)
+    @parent.root = Node.new(key)
+  end
+
   def value(*)
   end
 
   def insert(key)
-    @parent.left == self ? self.set_parents_left_node(key) : self.set_parents_right_node(key)
+    self.set_parents_left_node(key) if @parent.left == self
+    self.set_parents_right_node(key) if @parent.right == self
+    self.set_root_node(key) if @parent.instance_of?(BinarySearchTree) && @parent.root == self
   end
 
   def accept(visitor)

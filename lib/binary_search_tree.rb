@@ -1,5 +1,6 @@
 require_relative '../lib/concrete_visitor'
 require_relative '../lib/node'
+require_relative '../lib/nil_node'
 
 class BinarySearchTree
   attr_accessor :strategy, :root
@@ -45,11 +46,7 @@ class BinarySearchTree
   end
 
   def insert(key)
-    if @root.nil?
-      @root = Node.new(key)
-    else
       @root.insert(key)
-    end
   end
 
 

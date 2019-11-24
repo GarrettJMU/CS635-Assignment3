@@ -19,16 +19,16 @@ RSpec.describe BinarySearchTree do
         expect(subject.visualize).to eq("(foo () ())")
       end
 
-      # it 'should show the entire representation of the node' do
-      #   subject.insert("b")
-      #   subject.insert("a")
-      #   subject.insert("c")
-      #
-      #   expect(subject.root.value).to eq("b")
-      #   expect(subject.root.left.value).to eq("a")
-      #   expect(subject.root.right.value).to eq("c")
-      #   expect(subject.visualize).to eq("(foo)")
-      # end
+      it 'should show the entire representation of the node' do
+        subject.insert("b")
+        subject.insert("a")
+        subject.insert("c")
+
+        expect(subject.root.value).to eq("b")
+        expect(subject.root.left.value).to eq("a")
+        expect(subject.root.right.value).to eq("c")
+        # expect(subject.visualize).to eq("(b (a () ()) (c () ()))")
+      end
     end
   end
 end
