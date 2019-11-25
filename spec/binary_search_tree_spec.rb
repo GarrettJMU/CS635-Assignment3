@@ -146,7 +146,7 @@ RSpec.describe BinarySearchTree do
 
     context 'when there are no values' do
       it 'should return nil' do
-        # expect(subject.search('a')).to eq(nil)
+        expect(subject.search('a')).to eq(nil)
       end
     end
   end

@@ -1,7 +1,10 @@
 require_relative '../lib/strategy'
+require_relative '../lib/node'
 
 class ConcreteForwardStrategy < Strategy
   def search(key, node)
+    return nil unless node.instance_of?(Node)
+
     if key < node.value
       search(key, node.left)
     elsif key > node.value
