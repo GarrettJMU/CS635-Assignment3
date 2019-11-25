@@ -3,7 +3,9 @@ class NullNode
 
   def initialize(parent)
     @parent = parent
-    @value = nil
+  end
+
+  def value
   end
 
   def left
