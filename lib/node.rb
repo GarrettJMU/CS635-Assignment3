@@ -13,6 +13,14 @@ class Node
     strategy.insert(new_key, self)
   end
 
+  def keys_less_than(key, reverse = false)
+    key < (reverse ? @value.reverse : @value)
+  end
+
+  def keys_greater_than(key, reverse = false)
+    key > (reverse ? @value.reverse : @value)
+  end
+
   def accept(visitor)
     visitor.visit_component_with_value(self)
   end

@@ -4,10 +4,9 @@ require_relative '../lib/node'
 class ConcreteForwardStrategy < Strategy
   def search(key, node)
     return nil unless node.instance_of?(Node)
-
-    if key < node.value
+    if node.keys_less_than(key)
       search(key, node.left)
-    elsif key > node.value
+    elsif node.keys_greater_than(key)
       search(key, node.right)
     else
       node

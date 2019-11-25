@@ -2,12 +2,9 @@ require_relative '../lib/strategy'
 
 class ConcreteReverseStrategy < Strategy
   def search(key, node)
-    reversed_key = key.reverse
-    reversed_node_value = node.value.reverse
-
-    if reversed_key < reversed_node_value
+    if node.keys_less_than(key.reverse, true)
       search(key, node.left)
-    elsif reversed_key > reversed_node_value
+    elsif node.keys_greater_than(key.reverse, true)
       search(key, node.right)
     else
       node

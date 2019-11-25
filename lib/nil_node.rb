@@ -26,6 +26,14 @@ class NullNode
     @parent.root = Node.new(key)
   end
 
+  def keys_less_than(*)
+    false
+  end
+
+  def keys_greater_than(*)
+    false
+  end
+
   def insert(*args)
     if @parent.instance_of?(Node)
       self.set_parents_left_node(args[0]) if @parent.left === self
