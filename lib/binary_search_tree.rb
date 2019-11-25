@@ -3,16 +3,26 @@ require_relative '../lib/node'
 require_relative '../lib/nil_node'
 
 class BinarySearchTree
-  attr_accessor :strategy, :root
+  attr_accessor :root
+  attr_reader :strategy
 
   def initialize(strategy)
     @strategy = strategy
     @root = NullNode.new(self)
   end
-  #
-  # def strategy(strategy)
-  #   @strategy = strategy
-  # end
+
+  def change_strategy(strategy)
+    old_tree = []
+
+    self.pre_order do |node|
+      old_tree.push(node)
+    end
+
+    @strategy = strategy
+    @root = NullNode.new(self)
+
+    old_tree
+  end
 
   def insert(value)
     @root.insert(value, @strategy)

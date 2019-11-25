@@ -7,6 +7,36 @@ RSpec.describe BinarySearchTree do
   let(:strategy) { ConcreteForwardStrategy.new }
   subject { BinarySearchTree.new(strategy) }
 
+
+  describe '#change_strategy' do
+    before(:each) do
+      input = ['b', 'c', 'a']
+      input.each do |i|
+        subject.insert(i)
+      end
+    end
+
+    it 'should return the old tree' do
+      old_tree = []
+
+      subject.pre_order do |node|
+        old_tree.push(node)
+      end
+
+      expect(subject.change_strategy(ConcreteReverseStrategy.new)).to eq(old_tree)
+    end
+
+    it 'should set the new strategy' do
+      subject.change_strategy(ConcreteReverseStrategy.new)
+      expect(subject.strategy.instance_of?(ConcreteReverseStrategy)).to eq(true)
+    end
+
+    it 'should set the root back to null' do
+      subject.change_strategy(ConcreteReverseStrategy.new)
+      expect(subject.root.instance_of?(NullNode)).to eq(true)
+    end
+  end
+
   describe '#insert' do
     context 'when there is no Node at the root' do
       before(:each) do
