@@ -34,14 +34,9 @@ class BinarySearchTree
 
   def visualize
     tree = ""
-    if @root.nil?
-      tree += "()"
-    else
-      self.pre_order do |node|
-        tree += node.accept(ConcreteVisitor.new)
-      end
+    self.pre_order do |node|
+      tree += node.accept(ConcreteVisitor.new)
     end
-
     tree
   end
 
@@ -53,7 +48,6 @@ class BinarySearchTree
   end
 
   def pre_order(node = @root, &block)
-    return if node.nil?
     yield node
     in_order(node.left, &block)
     in_order(node.right, &block)

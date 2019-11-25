@@ -1,5 +1,5 @@
 class NullNode
-  attr_accessor :parent, :value
+  attr_accessor :parent, :value, :left, :right
 
   def initialize(parent)
     @parent = parent
