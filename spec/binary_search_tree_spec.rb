@@ -100,7 +100,7 @@ RSpec.describe BinarySearchTree do
         expect(subject.root.value).to eq("b")
         expect(subject.root.left.value).to eq("a")
         expect(subject.root.right.value).to eq("c")
-        # expect(subject.visualize).to eq("(b (a () ()) (c () ()))")
+        expect(subject.visualize).to eq("(b (a () ()) (c () ()))")
       end
     end
   end

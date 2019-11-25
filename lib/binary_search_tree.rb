@@ -55,6 +55,7 @@ class BinarySearchTree
 
   def pre_order(node = @root, &block)
     yield node
+
     in_order(node.left, &block)
     in_order(node.right, &block)
   end
