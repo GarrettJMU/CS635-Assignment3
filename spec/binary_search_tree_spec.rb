@@ -86,11 +86,11 @@ RSpec.describe BinarySearchTree do
     end
 
     context 'when there are nodes' do
-      # it 'should return a visualization' do
-      #   subject.insert("foo")
-      #   expect(subject.root.value).to eq("foo")
-      #   expect(subject.visualize).to eq("(foo () ())")
-      # end
+      it 'should return a visualization' do
+        subject.insert("foo")
+        expect(subject.root.value).to eq("foo")
+        expect(subject.visualize).to eq("(foo () ())")
+      end
 
       it 'should show the entire representation of the node' do
         subject.insert("b")

@@ -119,7 +119,7 @@ RSpec.describe NullNode do
 
   describe '#visit_component_with_nil' do
     it 'should return empty parentheses' do
-      expect(subject.visit_component_with_nil).to eq("()")
+      expect(subject.visit_component_with_nil).to eq(" ()")
     end
   end
 

@@ -38,6 +38,6 @@ class NullNode
   end
 
   def visit_component_with_nil
-    "()"
+    " ()"
   end
 end

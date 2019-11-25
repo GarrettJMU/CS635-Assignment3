@@ -71,7 +71,7 @@ RSpec.describe Node do
     let(:value) { "foo" }
     context 'when a value is padded' do
       it 'should return the current value with parentheses around it' do
-        expect(subject.accept(ConcreteVisitor.new)).to eq("(foo)")
+        expect(subject.accept(ConcreteVisitor.new)).to eq("(foo")
       end
     end
   end

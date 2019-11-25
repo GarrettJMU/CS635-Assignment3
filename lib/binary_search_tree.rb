@@ -34,10 +34,16 @@ class BinarySearchTree
 
   def visualize
     tree = ""
+    count = 0
+
     self.pre_order do |node|
+      count += 1
       tree += node.accept(ConcreteVisitor.new)
     end
-    tree
+
+    closing_count = tree.count(")")
+    (count - closing_count).times {tree += ")"}
+    tree.strip
   end
 
   def in_order(node = @root, &block)
