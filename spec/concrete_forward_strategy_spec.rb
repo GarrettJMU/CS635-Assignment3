@@ -16,4 +16,10 @@ RSpec.describe ConcreteForwardStrategy do
       expect(node.left.value).to eq('a')
     end
   end
+
+  describe '#search' do
+    it 'should search correctly' do
+
+    end
+  end
 end

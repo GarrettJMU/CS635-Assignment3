@@ -7,7 +7,6 @@ RSpec.describe BinarySearchTree do
   let(:strategy) { ConcreteForwardStrategy.new }
   subject { BinarySearchTree.new(strategy) }
 
-
   describe '#change_strategy' do
     before(:each) do
       input = ['b', 'c', 'a']
@@ -65,6 +64,16 @@ RSpec.describe BinarySearchTree do
       it 'should add the value to the new node' do
         expect(subject.root.left.value).to eq('bar')
       end
+    end
+  end
+
+  describe '#convert_to_string_just_in_case' do
+    it 'should convert to string' do
+      expect(subject.convert_to_string_just_in_case(5)).to eq('5')
+    end
+
+    it 'should do nothing if already a string' do
+      expect(subject.convert_to_string_just_in_case('foo')).to eq('foo')
     end
   end
 

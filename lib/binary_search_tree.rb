@@ -25,7 +25,11 @@ class BinarySearchTree
   end
 
   def insert(value)
-    @root.insert(value, @strategy)
+    @root.insert(convert_to_string_just_in_case(value), @strategy)
+  end
+
+  def convert_to_string_just_in_case(value)
+    value.to_s
   end
 
   def visualize
